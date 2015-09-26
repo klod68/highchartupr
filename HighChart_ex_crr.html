@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    
+
+<h4>Producción científica de la UPR (1999-2013) en Web of Science: SCI, SSCI, A&HI</h4>
+
+<p> </p>
+<div id="dd1">
+<p><select id="list1" name="list1">
+<option value="Todas">Todos los índices</option>
+<option value="SCI">Science Citation Index</option>
+<option value="SSCI">Social Science Citation Index</option>
+<option value="ART-HUM">Arts &amp; Humanities Index</option>
+</select></p>
+</div>
+<div id="container1"> </div>
+<p> </p>
+<p> </p>
+<h4>Producción científica de la UPR (1999-2013) en Web of Science: SCI, SSCI, A&HI</h4>
+<p> </p>
+<p> </p>
+<div id="container2"> </div>
+<p> </p>
+<p> </p>
+<h4>Top 5 de la UPR  (1999-2013) en Web of Science: SCI, SSCI, A&HI</h4>
+<div id="dd2">
+<p><select id="list2" name="list2">
+<option value="Todas">Todas las áreas</option>
+<option value="ART-HUM">ART-HUM::Artes y Humanidades</option>
+<option value="BIO">BIO::Ciencias de la Vida</option>
+<option value="EXP">EXP::Ciencias Experimentales</option>
+<option value="ING">ING::Arquitectura, Ingeniería y Ciencias de Computación</option>
+<option value="MED">MED::Medicina y Farmacología</option>
+<option value="SOC">SOC::Ciencias Sociales</option>
+</select></p>
+</div>
+<div id="container4"> </div>
+<p> </p>
+<p> </p>
+<h4>Top 5 (50+) universidades privadas (1999-2013) en Web of Science: SCI, SSCI, A&HI</h4>
+<div id="dd3">
+<p><select id="list3" name="list3">
+<option value="Todas">Todas las áreas</option>
+<option value="ART-HUM">ART-HUM::Artes y Humanidades</option>
+<option value="BIO">BIO::Ciencias de la Vida</option>
+<option value="EXP">EXP::Ciencias Experimentales</option>
+<option value="ING">ING::Arquitectura, Ingeniería y Ciencias de Computación</option>
+<option value="MED">MED::Medicina y Farmacología</option>
+<option value="SOC">SOC::Ciencias Sociales</option>
+</select></p>
+</div>
+<div id="container5"> </div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="http://code.highcharts.com/modules/drilldown.js"></script>
+<script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+<!--<script src="js/highcharts.js"></script>
+		<script src="js/drilldown.js"></script>
+		<script src="js/exporting.js"></script>-->
+<p> </p>
+<!--graphic 1-->
+<script type="text/javascript">// <![CDATA[
+$(document).ready(function () {
+			$(function(){
+				try {
+					Highcharts.setOptions({
+						lang: {
+							thousandsSep: ',',
+						}
+					});
+				} catch (e) { }
+				////////////////////////////////////////////
+				//Graphic 1
+				////////////////////////////////////////////
+				$('#container1').highcharts({
+					credits: {
+						href: "http://claudiorivera.net",
+						text: "Preparado por Claudio Rivera",
+						position: {
+							y: 0,
+							verticalAlign: "bottom"
+						}
+					},
+					//area type
+					chart:{
+						type:'area'
+					},
+					title: {
+						text: 'La producción total en la UPR y el resto de Puerto Rico (1999-2013)',
+						x: -20 //center
+					},
+
+					subtitle: {
+						text: '(Haga clic en la leyenda para incluir o eliminar)',
+						x: -20
+					},
+					xAxis: {
+						categories: ['1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007'
+							, '2008', '2009', '2010', '2011', '2012', '2013'],
+						tickmarkPlacement: 'on',
+						title: {
+							enabled:false
+						}
+					},
+					yAxis: {
+						title: {
+							text: 'Por ciento'
+						},
+					},
+					
+					tooltip: {
+						valueSuffix: ' documentos',
+						pointFormat: '<span style="color:{#000000}">{series.name}</span>: <b>{point.percentage:.2f}%</b> ({point.y:,.of} documentos)<br/>',
+						shared: true
+					},
+					plotOptions: {
+						area: {
+							stacking: 'percent',
+							lineColor: '#ffffff',
+							lineWidth: 1,
+							marker: {
+								lineWidth: 1,
+								lineColor: '#ffffff'
+							}
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						align: 'left',
+						verticalAlign: 'middle',
+						borderWidth: 1
+					},
+					series: [{
+						name: 'Resto de PR (SCI)',
+						data: [152,157,168,173,194,210,213,296,251,261,258,259,252,255,304],
+						color:'#FFA07A'
+					}, {
+						name: 'UPR (SCI)',
+						data: [414, 449, 451, 470, 534, 577, 598, 747, 770, 867, 840, 921, 867, 934, 872],
+						color:'#B22222'
+					}, {
+						name: 'Resto de PR (SSCI)',
+						data: [12,17,9,14,15,11,17,24,18,36,19,14,25,30,27],
+						color:'#BDB76B'
+					}, {
+						name: 'UPR (SSCI)',
+						data: [30,37,31,26,45,41,43,61,56,79,97,93,82,89,87],
+						color:'#663'
+					}, {
+						name: 'Resto de PR (A&HI)',
+						data:[1,0,1,3,3,1,0,4,1,3,3,1,3,2,7],
+						color:'#0FF'
+					}, {
+						name: 'UPR (A&HI)',
+						data: [15,10,14,17,12,15,13,15,18,15,38,23,12,25,14],
+						color:'#00F'
+					}]
+
+				});//Graphic
+			});
+		
+			$("#list1").change(function(){
+				try
+				{
+				//alert(this.value);
+					var s = this.value;
+					var chart = $("#container1").highcharts();
+					//alert(chart);
+					while(chart.series.length>0){
+						chart.series[0].remove(true);
+					};
+					if(s=='SCI'){
+						chart.addSeries({
+							name: 'Resto de PR (SCI)',
+							data: [152,157,168,173,194,210,213,296,251,261,258,259,252,255,304],
+							color:'#FFA07A'
+						});
+						chart.addSeries({
+							name: 'UPR (SCI)',
+							data: [414, 449, 451, 470, 534, 577, 598, 747, 770, 867, 840, 921, 867, 934, 872],
+							color:'#B22222'
+						});					
+					}else if (s=='SSCI'){
+						chart.addSeries({
+							name: 'Resto de PR (SSCI)',
+							data: [12,17,9,14,15,11,17,24,18,36,19,14,25,30,27],
+							color:'#BDB76B'
+						});
+						chart.addSeries({
+							name: 'UPR (SSCI)',
+							data: [30,37,31,26,45,41,43,61,56,79,97,93,82,89,87],
+							color:'#663'
+						});
+					}else if (s=='ART-HUM'){
+						chart.addSeries({
+							name: 'Resto de PR (A&HI)',
+							data:[1,0,1,3,3,1,0,4,1,3,3,1,3,2,7],
+							color:'#0FF'
+						});
+						chart.addSeries({
+							name: 'UPR (A&HI)',
+							data: [15,10,14,17,12,15,13,15,18,15,38,23,12,25,14],
+							color:'#00F'
+						});						
+					}else if (s=='Todas'){
+						chart.addSeries({
+							name: 'Resto de PR (SCI)',
+							data: [152,157,168,173,194,210,213,296,251,261,258,259,252,255,304],
+							color:'#FFA07A'
+						});
+						chart.addSeries({
+							name: 'UPR (SCI)',
+							data: [414, 449, 451, 470, 534, 577, 598, 747, 770, 867, 840, 921, 867, 934, 872],
+							color:'#B22222'
+						});					
+						chart.addSeries({
+							name: 'Resto de PR (SSCI)',
+							data: [12,17,9,14,15,11,17,24,18,36,19,14,25,30,27],
+							color:'#BDB76B'
+						});
+						chart.addSeries({
+							name: 'UPR (SSCI)',
+							data: [30,37,31,26,45,41,43,61,56,79,97,93,82,89,87],
+							color:'#663'
+						});
+						chart.addSeries({
+							name: 'Resto de PR (A&HI)',
+							data:[1,0,1,3,3,1,0,4,1,3,3,1,3,2,7],
+							color:'#0FF'
+						});
+						chart.addSeries({
+							name: 'UPR (A&HI)',
+						data: [15,10,14,17,12,15,13,15,18,15,38,23,12,25,14],
+							color:'#00F'
+						});
+							
+					}
+				}
+				catch(e){}
+			});
+			}
+		);//document ready
+// ]]></script>
+<!--end of graphic 1-->
+<p> </p>
+<!--graphic 2-->
+<script type="text/javascript">// <![CDATA[
+var chart;
+		$(document).ready(function () {
+
+			try {
+				Highcharts.setOptions({
+					lang: {
+						thousandsSep: ',',
+						drillUpText: '< Volver a {series.name}'
+					}
+				});
+			} catch (e) { }
+
+			var dataDrilldown = [
+					  { name: 'Mayagüez', y: 3203, drilldown: 'rum', color: '#298238' },
+  					  { name: 'Río Piedras', y: 2207, drilldown: 'rrp', color: '#E70033' },
+					  { name: 'Ciencias Médicas', y: 1634, drilldown: 'rcm', color: '#004563' },
+  					  { name: 'Humacao', y: 458, drilldown: 'huma', color: 'rgb(102, 0, 0)' },
+					  { name: 'Cayey', y: 205, drilldown: 'cay', color: '#f79900' },
+					  { name: 'Otros', y: 94, drilldown: 'otro', color: '#888' },
+			],
+				drilldownSeries = {
+					series: [
+					  { name: 'Recinto de Mayagüez', id: 'rum', data: [['Science Citation Index', 3079], ['Social Science Citation Index', 89], ['Arts & Humanities Index', 35]] },
+					  { name: 'Recinto de Río Piedras', id: 'rrp', data: [ ['Science Citation Index', 1949], ['Social Science Citation Index', 176], ['Arts & Humanities Index', 82]] },
+					  { name: 'Recinto de Ciencias Médicas', id: 'rcm', data: [['Science Citation Index', 1465], ['Social Science Citation Index', 169], ['Arts & Humanities Index', 0]] },
+					  { name: 'Recinto de Humacao', id: 'huma', data: [['Science Citation Index', 452], ['Social Science Citation Index', 2], ['Arts & Humanities Index', 4]] },
+					  { name: 'Recinto de Cayey', id: 'cay', data: [['Science Citation Index', 192], ['Social Science Citation Index', 9], ['Arts & Humanities Index', 4]] },
+					  { name: 'Otros', id: 'otro', data: [['Bayamón', 16], ['Arecibo', 14], ['Aguadilla',16], ['Carolina', 2],['Ponce',44],['Utuado',2]] }
+
+					],
+					drillUpButton: {
+						position: {
+							x: 0,
+							y: -60,
+							align: 'left'
+						},
+						relativeTo: 'plotBox'
+					}
+				};
+
+		    /////////////////////////////////////////
+		    //Graphic 2
+            ///////////////////////////////////////////
+			$("#container2").highcharts({
+				chart: {
+					type: 'column',
+					//height: "600",
+					//width: "1000",
+					backgroundColor: "#FFF"
+				}, credits: {
+					href: "http://claudiorivera.net",
+					text: "Preparado por Claudio Rivera",
+					position: {
+						y: 0,
+						verticalAlign: "bottom"
+					}
+				},
+				title: {
+					text: 'Producción científica por unidades de la UPR 1999-2013'
+				},
+				subtitle: {
+					text: '(Haga clic en cualquier barra para ver los detalles.)'
+				},
+				xAxis: {
+					type: 'category',
+					labels: {
+						style: {
+							fontSize: '12px',
+							fontFamily: 'Arial,Verdana, sans-serif',
+							textDecoration: 'none'
+						}
+					}
+				},
+				yAxis: {
+				    title: {
+				        text: 'Total de documentos'
+				    },
+				    plotLines: [{
+				        value: 0,
+				        width: 1,
+				        color: '#808080'
+				    }]
+				},
+				legend: {
+					enabled: false,
+				},
+				plotOptions: {
+					series: {
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							rotation: 0,
+							x: 4,
+							y: -30,
+							color: '#000',
+							style: {
+								fontSize: '12px'
+							  , fontFamily: 'Arial,Verdana, sans-serif'
+							  , fontDecoration: 'Bold'
+							  //, textShadow: '1px 1px 1px #000, -1px -1px 1px #000'
+							},
+						}
+					}
+				},
+				tooltip: {
+					formatter: function () {
+						var point = this.point,
+							s = point.name + ':<b> ' + Highcharts.numberFormat(this.y, 0) + ' documentos</b><br/>';
+						if (point.drilldown) {
+							s += 'Haga clic para ver detalles de ' + point.name;
+						}
+						return s;
+					}
+				},
+				drilldown: drilldownSeries,
+				series: [{
+					name: 'totales por recinto',
+					color: 'white',
+					data: dataDrilldown
+				}],
+				exporting: {
+					enabled: true
+				},
+			});
+		});  //document ready
+// ]]></script>
+<!--end of graphic 2-->
+<p> </p>
+<p> </p>
+<!--Start Iteration #4-->
+<p> </p>
+<!--graphic 4-->
+<script type="text/javascript">// <![CDATA[
+$(document).ready(function (){
+			$(function(){
+				try {
+					Highcharts.setOptions({
+						lang: {
+							thousandsSep: ',',
+						}
+					});
+				} catch (e) { }	
+				////////////////////////////////////////////
+				//Graphic 2
+				////////////////////////////////////////////
+				$("#container4").highcharts({
+					chart: {
+						type: 'column',
+						//height: "600",
+						//width: "1500",
+						backgroundColor: "#FFF"
+					}, credits: {
+						href: "http://claudiorivera.net",
+						text: "Preparado por Claudio Rivera",
+						position: {
+							y: 0,
+							verticalAlign: "bottom"
+						}
+					},
+					title: {
+						text: 'Universidad de Puerto Rico - Recintos (Top 5)'
+					},
+					subtitle: {
+						text: '(Haga clic en la leyenda para incluir o eliminar)'
+					},
+					xAxis: {
+						categories: ['UPR-RUM','UPR-RP','UPR-CM','UPR-H','UPR-CY'],
+						labels: {
+							style: {
+								fontSize: '12px',
+								fontFamily: 'Arial,Verdana, sans-serif',
+								textDecoration: 'none'
+							}
+						}
+					},
+					yAxis: {
+						min:0,
+						title: {
+							text: 'Total de documentos'
+						},
+						stackLabels: {
+						    enabled: true,
+                            y:-15,
+							style: {
+								fontWeight: 'bold',
+								color:('black')
+							}
+						}
+					},
+					legend: {
+						enabled: true,
+						layout: 'vertical',
+						align: 'left',
+						verticalAlign: 'middle',
+						borderWidth: 1,
+						shadow: false					    
+					},
+					tooltip:{
+						formatter:function(){
+							return '<b>' + this.x + '</b><br/>' +
+								this.series.name+ ': ' + this.y + '<br/>' +
+								'Total: ' + this.point.stackTotal;
+						}
+					},
+					plotOptions: {
+						column:{
+							stacking:'normal',
+							dataLabels:{
+							    enabled: true,
+                                rotation:0,
+								color: 'white',
+								x: 0,
+                                y:0,
+								style:{
+									textShadow: '0 0 3px black'
+								}
+							}
+						}
+					},
+					
+					series: [{
+						name: 'ART-HUM',
+						data:[82,153,9,11,8],
+						color:'#0000CD'
+					},{
+						name:'BIO',
+						data:[788,842,611,120,39],
+						color:'#228B22'
+					},{
+						name:'EXP',
+						data:[1917,1404,39,391,161],
+						color:'#FFA500'
+					},{
+						name:'ING',
+						data:[1508,386,10,96,31],
+						color:'#789'
+					},{
+						name:'MED',
+						data:[106,275,1516,27,31],
+						color:'#800000'
+					},{
+						name:'SOC',
+						data:[200,195,91,13,8],
+						color:'#F0E68C'
+					}],
+					exporting: {
+						enabled: true
+					}
+				});
+			});
+			//////////////			
+			$("#list2").change(function(){
+				try
+				{
+					//alert(this.value);
+					var s = this.value;
+					var chart = $("#container4").highcharts();
+					//alert(chart);
+					while(chart.series.length>0){
+						chart.series[0].remove(true);
+					};
+					if(s=='ART-HUM'){
+						chart.addSeries({
+							name: 'ART-HUM',
+							data:[82,153,9,11,8],
+							color:'#0000CD'
+						});
+					}else if (s=='BIO'){
+						chart.addSeries({
+							name:'BIO',
+							data:[788,842,611,120,39],
+							color:'#228B22'
+						});
+					}else if (s=='EXP'){
+						chart.addSeries({
+							name:'EXP',
+							data:[1917,1404,39,391,161],
+							color:'#FFA500'
+						});
+					}else if (s=='ING'){
+						chart.addSeries({
+							name:'ING',
+							data:[1508,386,10,96,31],
+							color:'#789'
+						});
+					}else if (s=='MED'){
+						chart.addSeries({
+							name:'MED',
+							data:[106,275,1516,27,31],
+							color:'#800000'
+						});
+					}else if (s=='SOC'){
+						chart.addSeries({
+							name:'SOC',
+							data:[200,195,91,13,8],
+							color:'#F0E68C'
+						});
+					}else if (s=='Todas'){
+						chart.addSeries({
+							name: 'ART-HUM',
+							data:[82,153,9,11,8],
+							color:'#0000CD'
+						});					
+						chart.addSeries({
+							name:'BIO',
+							data:[788,842,611,120,39],
+							color:'#228B22'
+						});				
+						chart.addSeries({
+							name:'EXP',
+							data:[1917,1404,39,391,161],
+							color:'#FFA500'
+						});					
+						chart.addSeries({
+							name:'ING',
+							data:[1508,386,10,96,31],
+							color:'#789'
+						});			
+						chart.addSeries({
+							name:'MED',
+							data:[106,275,1516,27,31],
+							color:'#800000'
+						});					
+						chart.addSeries({
+							name:'SOC',
+							data:[200,195,91,13,8],
+							color:'#F0E68C'
+						});
+							
+					}
+					
+				}catch(e){alert("Error: "+e);}
+			});
+				////////////////////
+			}//Graphic			
+		);//document ready
+// ]]></script>
+<!--end of graphic 4-->
+<p> </p>
+<!--graphic 5-->
+<script type="text/javascript">// <![CDATA[
+$(document).ready(function () {
+			$(function(){
+				try {
+					Highcharts.setOptions({
+						lang: {
+							thousandsSep: ',',
+						}
+					});
+				} catch (e) { }
+
+				
+
+				////////////////////////////////////////////
+				//Graphic 5
+				////////////////////////////////////////////
+				$("#container5").highcharts({
+					chart: {
+						type: 'column',
+						//height: "600",
+						//width: "1500",
+						backgroundColor: "#FFF"
+					}, credits: {
+						href: "http://claudiorivera.net",
+						text: "Preparado por Claudio Rivera",
+						position: {
+							y: 0,
+							verticalAlign: "bottom"
+						}
+					},
+					title: {
+						text: 'Universidades Privadas (Top 5)'
+					},
+					subtitle: {
+						text: '(Haga clic en la leyenda para incluir o eliminar)'
+					},
+					xAxis: {
+						categories: ['PONCE-SCM','UNIV-CENT-CARIBE','INTER-AMER-UNIV','SUAGM','PCU-PR'],
+						labels: {
+							style: {
+								fontSize: '12px',
+								fontFamily: 'Arial,Verdana, sans-serif',
+								textDecoration: 'none'
+							}
+						}
+					},
+					yAxis: {
+						min:0,
+						title: {
+							text: 'Total de documentos'
+						},
+						stackLabels: {
+						    enabled: true,
+                            y:-15,
+							style: {
+								fontWeight: 'bold',
+								color:('black')
+							}
+						}
+					},
+					legend: {
+						enabled: true,
+						layout: 'vertical',
+						align: 'left',
+						verticalAlign: 'middle',
+						borderWidth: 1,
+						shadow: false					    
+					},
+					tooltip:{
+						formatter:function(){
+							return '<b>' + this.x + '</b><br/>' +
+								this.series.name+ ': ' + this.y + '<br/>' +
+								'Total: ' + this.point.stackTotal;
+						}
+					},
+					plotOptions: {
+						column:{
+							stacking:'normal',
+							dataLabels:{
+							    enabled: true,
+                                rotation:0,
+								color: 'white',
+								x: 0,
+                                y:0,
+								style:{
+									textShadow: '0 0 3px black'
+								}
+							}
+						}
+					},
+					
+					series: [{
+						name: 'ART-HUM',
+						data:[3,2,13,1,0],
+						color:'#0000CD'
+					},{
+						name:'BIO',
+						data:[296,175,77,74,38],
+						color:'#228B22'
+					},{
+						name:'EXP',
+						data:[21,19,104,116,66],
+						color:'#FFA500'
+					},{
+						name:'ING',
+						data:[1,0,27,21,8],
+						color:'#789'
+					},{
+						name:'MED',
+						data:[316,240,45,22,6],
+						color:'#800000'
+					},{
+						name:'SOC',
+						data:[31,24,22,13,5],
+						color:'#F0E68C'
+					}],
+					exporting: {
+						enabled: true
+					}
+				});
+			}); 
+			////////////////////
+			$("#list3").change(function(){
+				try
+				{
+					//alert(this.value);
+					var s = this.value;
+					var chart = $("#container5").highcharts();
+					//alert(chart);
+					while(chart.series.length>0){
+						chart.series[0].remove(true);
+					};
+					if(s=='ART-HUM'){
+						chart.addSeries({
+							name: 'ART-HUM',
+							data:[3,2,13,1,0],
+							color:'#0000CD'
+						});
+					}else if (s=='BIO'){
+						chart.addSeries({
+							name:'BIO',
+							data:[296,175,77,74,38],
+							color:'#228B22'
+						});
+					}else if (s=='EXP'){
+						chart.addSeries({
+							name:'EXP',
+							data:[21,19,104,116,66],
+							color:'#FFA500'
+						});
+					}else if (s=='ING'){
+						chart.addSeries({
+							name:'ING',
+							data:[1,0,27,21,8],
+							color:'#789'
+						});
+					}else if (s=='MED'){
+						chart.addSeries({
+							name:'MED',
+							data:[316,240,45,22,6],
+							color:'#800000'
+						});
+					}else if (s=='SOC'){
+						chart.addSeries({
+							name:'SOC',
+							data:[31,24,22,13,5],
+							color:'#F0E68C'
+						});
+					}else if (s=='Todas'){
+						chart.addSeries({
+							name: 'ART-HUM',
+							data:[3,2,13,1,0],
+							color:'#0000CD'
+						});				
+						chart.addSeries({
+							name:'BIO',
+							data:[296,175,77,74,38],
+							color:'#228B22'
+						});					
+						chart.addSeries({
+							name:'EXP',
+							data:[21,19,104,116,66],
+							color:'#FFA500'
+						});					
+						chart.addSeries({
+							name:'ING',
+							data:[1,0,27,21,8],
+							color:'#789'
+						});				
+						chart.addSeries({
+							name:'MED',
+							data:[316,240,45,22,6],
+							color:'#800000'
+						});
+						chart.addSeries({
+							name:'SOC',
+							data:[31,24,22,13,5],
+							color:'#F0E68C'
+						});					
+					}
+				}catch(e){alert("Error: "+e);}
+			});
+			}//Graphic
+		);//document ready
+// ]]></script>
+<!--end of graphic 5-->
+<p> </p>
+<!--End Iteratoin #4-->
+<p> </p>
+    
+</body>
+</html>
